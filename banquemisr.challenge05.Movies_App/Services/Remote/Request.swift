@@ -55,4 +55,8 @@ class URLs {
     func getNowPlaying() -> String {
         baseUrl + "now_playing?language=en-US&page=1"
     }
+    
+    func getPopular() -> String {
+        baseUrl + "popular?language=en-US&page=1"
+    }
 }

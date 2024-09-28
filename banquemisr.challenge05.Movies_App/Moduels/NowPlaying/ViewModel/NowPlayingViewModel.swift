@@ -13,10 +13,6 @@ protocol NowPlayingViewModelProtocol{
     func getNowPlayingdata()
     func getNowPlayingdetails(index: Int) -> NowPlaying
     func getNowPlayingCount() -> Int
-    //func deletSportdetails(chosedindex: Int)
-    //func getLeagueId(index: Int) -> Int
-    
-    
 }
 
 
