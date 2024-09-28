@@ -59,4 +59,8 @@ class URLs {
     func getPopular() -> String {
         baseUrl + "popular?language=en-US&page=1"
     }
+    
+    func getUpComing() -> String {
+        baseUrl + "upcoming?language=en-US&page=1"
+    }
 }
