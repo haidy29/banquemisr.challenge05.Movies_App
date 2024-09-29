@@ -29,6 +29,13 @@
 		C33622072CA8B10D00E18296 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C33622052CA8B10D00E18296 /* MovieTableViewCell.xib */; };
 		C33622092CA90CF200E18296 /* Popular+TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33622082CA90CF200E18296 /* Popular+TableDelegate.swift */; };
 		C336220B2CA90D6400E18296 /* UpComing+TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336220A2CA90D6400E18296 /* UpComing+TableDelegate.swift */; };
+		C33622122CA9249900E18296 /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33622112CA9249900E18296 /* DetailsModel.swift */; };
+		C33622142CA92C7A00E18296 /* ChatGPT.webloc in Resources */ = {isa = PBXBuildFile; fileRef = C33622132CA92C7A00E18296 /* ChatGPT.webloc */; };
+		C33622162CA959DD00E18296 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33622152CA959DD00E18296 /* DetailsViewController.swift */; };
+		C33622182CA9665E00E18296 /* DetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33622172CA9665E00E18296 /* DetailsUseCase.swift */; };
+		C336221A2CA9678100E18296 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33622192CA9678100E18296 /* DetailsViewModel.swift */; };
+		C336221D2CA9844700E18296 /* banquemisr.challenge05.Movies_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C336221B2CA9844700E18296 /* banquemisr.challenge05.Movies_App.xcdatamodeld */; };
+		C336221F2CA9848000E18296 /* MovieCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336221E2CA9848000E18296 /* MovieCoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +63,13 @@
 		C33622052CA8B10D00E18296 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		C33622082CA90CF200E18296 /* Popular+TableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Popular+TableDelegate.swift"; sourceTree = "<group>"; };
 		C336220A2CA90D6400E18296 /* UpComing+TableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UpComing+TableDelegate.swift"; sourceTree = "<group>"; };
+		C33622112CA9249900E18296 /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
+		C33622132CA92C7A00E18296 /* ChatGPT.webloc */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ChatGPT.webloc; sourceTree = "<group>"; };
+		C33622152CA959DD00E18296 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		C33622172CA9665E00E18296 /* DetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUseCase.swift; sourceTree = "<group>"; };
+		C33622192CA9678100E18296 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		C336221C2CA9844700E18296 /* Coredata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Coredata.xcdatamodel; sourceTree = "<group>"; };
+		C336221E2CA9848000E18296 /* MovieCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +110,7 @@
 				C325ADFA2CA747FE00021308 /* Moduels */,
 				C33621E02CA83A8000E18296 /* Core */,
 				C325ADF42CA6D53C00021308 /* Info.plist */,
+				C33622132CA92C7A00E18296 /* ChatGPT.webloc */,
 			);
 			path = banquemisr.challenge05.Movies_App;
 			sourceTree = "<group>";
@@ -103,6 +118,7 @@
 		C325ADFA2CA747FE00021308 /* Moduels */ = {
 			isa = PBXGroup;
 			children = (
+				C336220D2CA9245B00E18296 /* Details */,
 				C33621F22CA87A2800E18296 /* UpComing */,
 				C33621E22CA8480500E18296 /* Popular */,
 				C325ADFB2CA7481200021308 /* NowPlaying */,
@@ -148,6 +164,8 @@
 		C32C0EC32CA7523300D141B5 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				C336221B2CA9844700E18296 /* banquemisr.challenge05.Movies_App.xcdatamodeld */,
+				C336221E2CA9848000E18296 /* MovieCoreData.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -255,6 +273,7 @@
 				C33621FA2CA8875300E18296 /* UpComingUseCase.swift */,
 				C32C0EC52CA7527900D141B5 /* NowPlayingUseCase.swift */,
 				C33622002CA8AB5900E18296 /* PopularUseCase.swift */,
+				C33622172CA9665E00E18296 /* DetailsUseCase.swift */,
 			);
 			path = UseCaseLayer;
 			sourceTree = "<group>";
@@ -265,6 +284,40 @@
 				C33621F62CA87AA700E18296 /* MovieModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C336220D2CA9245B00E18296 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				C33622102CA9248200E18296 /* Model */,
+				C336220F2CA9247900E18296 /* View */,
+				C336220E2CA9246900E18296 /* ViewModel */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		C336220E2CA9246900E18296 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C33622192CA9678100E18296 /* DetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C336220F2CA9247900E18296 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C33622152CA959DD00E18296 /* DetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C33622102CA9248200E18296 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C33622112CA9249900E18296 /* DetailsModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +382,7 @@
 				C325ADF02CA6D53C00021308 /* Assets.xcassets in Resources */,
 				C33622072CA8B10D00E18296 /* MovieTableViewCell.xib in Resources */,
 				C325ADEE2CA6D53A00021308 /* Main.storyboard in Resources */,
+				C33622142CA92C7A00E18296 /* ChatGPT.webloc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,24 +393,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C33622122CA9249900E18296 /* DetailsModel.swift in Sources */,
 				C33621F92CA8867300E18296 /* UpComingViewModel.swift in Sources */,
 				C33622062CA8B10D00E18296 /* MovieTableViewCell.swift in Sources */,
 				C33621F72CA87AA700E18296 /* MovieModel.swift in Sources */,
 				C33622032CA8AF2B00E18296 /* NowPlaying+TableDelegate.swift in Sources */,
+				C336221D2CA9844700E18296 /* banquemisr.challenge05.Movies_App.xcdatamodeld in Sources */,
 				C325ADFD2CA748CC00021308 /* NowPlayingViewController.swift in Sources */,
 				C325ADEB2CA6D53A00021308 /* UpComingViewController.swift in Sources */,
+				C336221A2CA9678100E18296 /* DetailsViewModel.swift in Sources */,
 				C32C0ED32CA78C2D00D141B5 /* UIImageExtentions.swift in Sources */,
 				C325ADE72CA6D53A00021308 /* AppDelegate.swift in Sources */,
 				C33622012CA8AB5900E18296 /* PopularUseCase.swift in Sources */,
 				C325ADE92CA6D53A00021308 /* SceneDelegate.swift in Sources */,
 				C32C0ECB2CA76BC400D141B5 /* NowPlayingViewModel.swift in Sources */,
+				C33622182CA9665E00E18296 /* DetailsUseCase.swift in Sources */,
 				C33622092CA90CF200E18296 /* Popular+TableDelegate.swift in Sources */,
 				C32C0EC62CA7527900D141B5 /* NowPlayingUseCase.swift in Sources */,
+				C336221F2CA9848000E18296 /* MovieCoreData.swift in Sources */,
 				C33621E82CA84A2E00E18296 /* PopularViewController.swift in Sources */,
 				C336220B2CA90D6400E18296 /* UpComing+TableDelegate.swift in Sources */,
 				C32C0ED02CA7843100D141B5 /* Request.swift in Sources */,
 				C33621ED2CA84B5700E18296 /* PopularViewModel.swift in Sources */,
 				C33621FB2CA8875300E18296 /* UpComingUseCase.swift in Sources */,
+				C33622162CA959DD00E18296 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +632,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C336221B2CA9844700E18296 /* banquemisr.challenge05.Movies_App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C336221C2CA9844700E18296 /* Coredata.xcdatamodel */,
+			);
+			currentVersion = C336221C2CA9844700E18296 /* Coredata.xcdatamodel */;
+			path = banquemisr.challenge05.Movies_App.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C325ADDB2CA6D53A00021308 /* Project object */;
 }

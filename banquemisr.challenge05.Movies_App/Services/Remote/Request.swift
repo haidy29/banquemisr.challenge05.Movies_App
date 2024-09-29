@@ -63,7 +63,7 @@ class URLs {
         baseUrl + "upcoming?language=en-US&page=1"
     }
     
-//    func getdetails() -> String {
-//        baseUrl + "upcoming?language=en-US&page=1"
-//    }
+    func getdetails(movieId: Int) -> String {
+        baseUrl + "\(movieId)?language=en-US"
+    }
 }

@@ -19,5 +19,16 @@ class NowPlayingUseCase{
         
         nwService.requestData(url: URLs.Instance.getNowPlaying(),
                               handler: handler)
+        
     }
+    
+    func saveNowPlayingToCoreData(data: [Movie]){
+        CoreDataManager.deleteAllDataThenSave(data: data, entityName: .NowPlayingMovies)
+    }
+    
+    func fetchNowPlayingMoviesFromCoreData() -> [Movie] {
+       return CoreDataManager.fetchMoviesFromCoreData(entityName: .NowPlayingMovies)
+    }
+    
+    
 }

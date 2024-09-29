@@ -19,4 +19,11 @@ extension NowPlayingViewController: UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movieDetails = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        movieDetails.movieId = nowPlayingViewModel.getMovieId(index: indexPath.row)
+        self.navigationController?.pushViewController(movieDetails, animated: true)
+    }
+    
 }

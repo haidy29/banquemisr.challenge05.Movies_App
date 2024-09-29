@@ -14,6 +14,7 @@ class NowPlayingViewController: UIViewController {
             nowPlayingTableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieTableViewCell")
         }
     }
+    
     var nowPlayingViewModel: NowPlayingViewModelProtocol!
     
     override func viewDidLoad() {
@@ -25,8 +26,19 @@ class NowPlayingViewController: UIViewController {
         nowPlayingViewModel.bindResultToViewController = { [weak self] in
             self?.renderTableView()
         }
-        nowPlayingViewModel.getNowPlayingdata()
+//        nowPlayingViewModel.getNowPlayingdata()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        nowPlayingViewModel.setupNetworkMonitoring()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            nowPlayingViewModel.stopMonitor()
+        }
     
     func renderTableView() {
         nowPlayingTableView.reloadData()
