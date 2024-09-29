@@ -1,32 +1,32 @@
 //
-//  PopularTableViewCell.swift
+//  MovieTableViewCell.swift
 //  banquemisr.challenge05.Movies_App
 //
-//  Created by Sohila Ahmed on 28/09/2024.
+//  Created by Sohila Ahmed on 29/09/2024.
 //
 
 import UIKit
 
-class PopularTableViewCell: UITableViewCell {
+class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieImg: UIImageView!
-   
-    @IBOutlet weak var lblreleaseyear: UILabel!
-    
     @IBOutlet weak var lbltitle: UILabel!
+    @IBOutlet weak var lblrealseyear: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
+        // Configure the view for the selected state
     }
-    
-    func setUpPopularCell(data: Popular){
+     
+    func setUpMovieCell(data: Movie){
         lbltitle.text = data.title
-        lblreleaseyear.text = data.releaseDate
+        lblrealseyear.text = data.releaseDate
         if let posterPath = data.posterPath {
             
             let imageUrlString = "https://image.tmdb.org/t/p/w500\(posterPath)"
@@ -38,6 +38,3 @@ class PopularTableViewCell: UITableViewCell {
         
     }
 }
-
-
-

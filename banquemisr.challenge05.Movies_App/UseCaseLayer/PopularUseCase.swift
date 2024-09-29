@@ -1,13 +1,13 @@
 //
-//  PopularVWService.swift
+//  PopularUseCase.swift
 //  banquemisr.challenge05.Movies_App
 //
-//  Created by Sohila Ahmed on 28/09/2024.
+//  Created by Sohila Ahmed on 29/09/2024.
 //
 
 import Foundation
 
-class PopularNWService{
+class PopularUseCase{
     
     var nwService : RequestDataProtocol
     
@@ -15,7 +15,7 @@ class PopularNWService{
         self.nwService = nwService
     }
     
-    func getPopular(handler: @escaping (PopularResponse?) -> Void){
+    func getPopular(handler: @escaping (ApiMovieResponse?) -> Void){
         
         nwService.requestData(url: URLs.Instance.getPopular(),
                               handler: handler)

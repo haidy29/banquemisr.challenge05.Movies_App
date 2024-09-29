@@ -32,7 +32,6 @@ class RequestData: RequestDataProtocol{
             }
             do{
                 let comingData = try JSONDecoder().decode(T.self, from: data)
-                // self.NowPlayinglist = comingData.results ?? [NowPlaying()]
                 handler(comingData)
                 
             }catch{
@@ -63,4 +62,8 @@ class URLs {
     func getUpComing() -> String {
         baseUrl + "upcoming?language=en-US&page=1"
     }
+    
+//    func getdetails() -> String {
+//        baseUrl + "upcoming?language=en-US&page=1"
+//    }
 }

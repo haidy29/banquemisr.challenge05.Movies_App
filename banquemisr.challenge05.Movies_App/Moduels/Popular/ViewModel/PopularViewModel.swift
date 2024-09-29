@@ -10,7 +10,7 @@ protocol PopularViewModelProtocol{
     var bindResultToViewController :(() -> ()) { get set }
     
     func getPopulardata()
-    func getPopulardetails(index: Int) -> Popular
+    func getPopulardetails(index: Int) -> Movie
     func getPopularCount() -> Int
 }
 
@@ -18,22 +18,22 @@ protocol PopularViewModelProtocol{
 class PopularViewModel : PopularViewModelProtocol{
     
     
-    var nwService : PopularNWService?
+    var nwService : PopularUseCase?
     var bindResultToViewController :(() -> ()) = {}
-    var Popularlist:  PopularResponse
+    var Popularlist:  ApiMovieResponse
     
     init(){
-        nwService = PopularNWService(nwService: RequestData())
-        self.Popularlist = PopularResponse(results: [])
+        nwService = PopularUseCase(nwService: RequestData())
+        self.Popularlist = ApiMovieResponse(results: [])
         
     }
     func getPopularCount() -> Int{
         Popularlist.results?.count ?? 0
     }
     
-    func getPopulardetails(index: Int) -> Popular{
+    func getPopulardetails(index: Int) -> Movie{
         
-        return Popularlist.results?[index] ?? Popular()
+        return Popularlist.results?[index] ?? Movie()
     }
 
     func getPopulardata(){

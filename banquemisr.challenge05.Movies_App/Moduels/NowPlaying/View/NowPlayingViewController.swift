@@ -7,16 +7,20 @@
 
 import UIKit
 
-class NowPlayingViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
+class NowPlayingViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    var nowPlayingViewModel :NowPlayingViewModelProtocol!
+    @IBOutlet weak var nowPlayingTableView: UITableView!{
+        didSet{
+            nowPlayingTableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieTableViewCell")
+        }
+    }
+    var nowPlayingViewModel: NowPlayingViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
+        nowPlayingTableView.dataSource = self
+        nowPlayingTableView.delegate = self
+        
         nowPlayingViewModel = NowPlayingViewModel()
         nowPlayingViewModel.bindResultToViewController = { [weak self] in
             self?.renderTableView()
@@ -24,19 +28,9 @@ class NowPlayingViewController: UIViewController , UITableViewDelegate, UITableV
         nowPlayingViewModel.getNowPlayingdata()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        nowPlayingViewModel.getNowPlayingCount()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)as! NowPlayingTableViewCell
-        let showeditem = nowPlayingViewModel.getNowPlayingdetails(index: indexPath.row)
-        cell.setUpNowPlayingCell(data: showeditem)
-        
-        return cell
-    }
-    
     func renderTableView() {
-        tableView.reloadData()
+        nowPlayingTableView.reloadData()
     }
 }
+
+

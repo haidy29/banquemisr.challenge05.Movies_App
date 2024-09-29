@@ -1,5 +1,5 @@
 //
-//  NowPlayingNWService.swift
+//  NowPlayingUseCase.swift
 //  banquemisr.challenge05.Movies_App
 //
 //  Created by Sohila Ahmed on 27/09/2024.
@@ -7,8 +7,7 @@
 
 import Foundation
 
- 
-class NowPlayingNWService{
+class NowPlayingUseCase{
     
     var nwService : RequestDataProtocol 
     
@@ -16,7 +15,7 @@ class NowPlayingNWService{
         self.nwService = nwService
     }
     
-    func getNowPlaying(handler: @escaping (NowPlayingResponse?) -> Void){
+    func getNowPlaying(handler: @escaping (ApiMovieResponse?) -> Void){
         
         nwService.requestData(url: URLs.Instance.getNowPlaying(),
                               handler: handler)

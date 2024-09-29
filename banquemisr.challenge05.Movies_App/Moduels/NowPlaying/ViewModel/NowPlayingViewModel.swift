@@ -11,7 +11,7 @@ protocol NowPlayingViewModelProtocol{
     var bindResultToViewController :(() -> ()) { get set }
     
     func getNowPlayingdata()
-    func getNowPlayingdetails(index: Int) -> NowPlaying
+    func getNowPlayingdetails(index: Int) -> Movie
     func getNowPlayingCount() -> Int
 }
 
@@ -19,22 +19,22 @@ protocol NowPlayingViewModelProtocol{
 class NowPlayingViewModel : NowPlayingViewModelProtocol{
     
     
-    var nwService : NowPlayingNWService?
+    var nwService : NowPlayingUseCase?
     var bindResultToViewController :(() -> ()) = {}
-    var NowPlayinglist:  NowPlayingResponse
+    var NowPlayinglist:  ApiMovieResponse
     
     init(){
-        nwService = NowPlayingNWService(nwService: RequestData())
-        self.NowPlayinglist = NowPlayingResponse(results: [])
+        nwService = NowPlayingUseCase(nwService: RequestData())
+        self.NowPlayinglist = ApiMovieResponse(results: [])
         
     }
     func getNowPlayingCount() -> Int{
         NowPlayinglist.results?.count ?? 0
     }
     
-    func getNowPlayingdetails(index: Int) -> NowPlaying{
+    func getNowPlayingdetails(index: Int) -> Movie{
         
-        return NowPlayinglist.results?[index] ?? NowPlaying()
+        return NowPlayinglist.results?[index] ?? Movie()
     }
 
     func getNowPlayingdata(){

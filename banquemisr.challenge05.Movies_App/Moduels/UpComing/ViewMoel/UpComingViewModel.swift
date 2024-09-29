@@ -10,7 +10,7 @@ protocol UpComingViewModelProtocol{
     var bindResultToViewController :(() -> ()) { get set }
     
     func getUpComingdata()
-    func getUpComingdetails(index: Int) -> UpComing
+    func getUpComingdetails(index: Int) -> Movie
     func getUpComingCount() -> Int
 }
 
@@ -18,22 +18,22 @@ protocol UpComingViewModelProtocol{
 class UpComingViewModel : UpComingViewModelProtocol{
     
     
-    var nwService : UpComingNWService?
+    var nwService : UpComingUseCase?
     var bindResultToViewController :(() -> ()) = {}
-    var UpCominglist:  UpComingResponse
+    var UpCominglist:  ApiMovieResponse
     
     init(){
-        nwService = UpComingNWService(nwService: RequestData())
-        self.UpCominglist = UpComingResponse(results: [])
+        nwService = UpComingUseCase(nwService: RequestData())
+        self.UpCominglist = ApiMovieResponse(results: [])
         
     }
     func getUpComingCount() -> Int{
         UpCominglist.results?.count ?? 0
     }
     
-    func getUpComingdetails(index: Int) -> UpComing{
+    func getUpComingdetails(index: Int) -> Movie{
         
-        return UpCominglist.results?[index] ?? UpComing()
+        return UpCominglist.results?[index] ?? Movie()
     }
 
     func getUpComingdata(){

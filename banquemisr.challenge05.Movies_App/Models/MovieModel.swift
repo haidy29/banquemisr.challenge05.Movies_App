@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct UpComingResponse: Codable {
+struct ApiMovieResponse: Codable {
     var dates: Dates?
     var page: Int?
-    var results: [UpComing]?
+    var results: [Movie]?
     var totalPages, totalResults: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -20,7 +20,11 @@ struct UpComingResponse: Codable {
     }
 }
 
-struct UpComing: Codable {
+struct Dates: Codable {
+    var maximum, minimum: String?
+}
+
+struct Movie: Codable {
     var adult: Bool?
     var backdropPath: String?
     var genreIDS: [Int]?
@@ -47,3 +51,7 @@ struct UpComing: Codable {
         case voteCount = "vote_count"
     }
 }
+
+
+
+

@@ -7,38 +7,30 @@
 
 import UIKit
 
-class UpComingViewController:  UIViewController , UITableViewDelegate, UITableViewDataSource{
-   
+class UpComingViewController:  UIViewController {
     
-
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var upComingTableView: UITableView!{
+        didSet{
+            upComingTableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieTableViewCell")
+        }
+    }
     
     var upComingViewModel :UpComingViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
+        upComingTableView.dataSource = self
+        upComingTableView.delegate = self
         upComingViewModel = UpComingViewModel()
         upComingViewModel.bindResultToViewController = { [weak self] in
             self?.renderTableView()
         }
         upComingViewModel.getUpComingdata()
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        upComingViewModel.getUpComingCount()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)as! UpComingTableViewCell
-        let showeditem = upComingViewModel.getUpComingdetails(index: indexPath.row)
-        cell.setUpUpComingCell(data: showeditem)
-        
-        return cell
-    }
-    
+     
     func renderTableView() {
-        tableView.reloadData()
+        upComingTableView.reloadData()
     }
 }
+
+
