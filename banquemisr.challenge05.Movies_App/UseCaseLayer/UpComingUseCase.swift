@@ -20,4 +20,13 @@ class UpComingUseCase{
         nwService.requestData(url: URLs.Instance.getUpComing(),
                               handler: handler)
     }
+    
+    func saveUpComingToCoreData(data: [Movie]){
+        CoreDataManager.deleteAllDataThenSave(data: data, entityName: .UpcomingMovies)
+    }
+    
+    func fetchUpComingMoviesFromCoreData() -> [Movie] {
+        return CoreDataManager.fetchMoviesFromCoreData(entityName: .UpcomingMovies)
+    }
+    
 }

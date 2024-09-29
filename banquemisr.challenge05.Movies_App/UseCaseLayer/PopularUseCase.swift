@@ -20,4 +20,13 @@ class PopularUseCase{
         nwService.requestData(url: URLs.Instance.getPopular(),
                               handler: handler)
     }
+    
+    func savePopularToCoreData(data: [Movie]){
+        CoreDataManager.deleteAllDataThenSave(data: data, entityName: .PopularMovies)
+    }
+    
+    func fetchPopularMoviesFromCoreData() -> [Movie] {
+       return CoreDataManager.fetchMoviesFromCoreData(entityName: .PopularMovies)
+    }
+    
 }

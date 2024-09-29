@@ -25,9 +25,20 @@ class UpComingViewController:  UIViewController {
         upComingViewModel.bindResultToViewController = { [weak self] in
             self?.renderTableView()
         }
-        upComingViewModel.getUpComingdata()
+      // upComingViewModel.getUpComingdata()
     }
      
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        upComingViewModel.setupNetworkMonitoring()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+        upComingViewModel.stopMonitor()
+        }
+    
     func renderTableView() {
         upComingTableView.reloadData()
     }

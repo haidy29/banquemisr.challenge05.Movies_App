@@ -25,9 +25,20 @@ class PopularViewController: UIViewController {
         popularViewModel.bindResultToViewController = { [weak self] in
             self?.renderTableView()
         }
-        popularViewModel.getPopulardata()
+       // popularViewModel.getPopulardata()
     }
      
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        popularViewModel.setupNetworkMonitoring()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+        popularViewModel.stopMonitor()
+        }
+    
     func renderTableView() {
         popularTableView.reloadData()
     }
